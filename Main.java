@@ -56,7 +56,8 @@ class Main {
 
             return z;
         } else {
-           
+
+          
             throw new WrongMiniMenu();
         }
     }
