@@ -18,7 +18,7 @@ class Main {
                     default: return;
                 }
             } catch(IOException e) {
-
+    
             } catch(WrongStudentName e) {
                 System.out.println("Błędne imie studenta!");
             }  catch(WrongStudentAge e) {
