@@ -45,12 +45,18 @@ class Main {
         return name;
     }
 
-    public static void exercise1() throws IOException, WrongStudentName,WrongStudentAge {
-        var name = ReadName();
-        System.out.println("Podaj wiek: ");
+  public static int ReadAge() throws WrongStudentAge {
+    System.out.println("Podaj wiek: ");
         var age = scan.nextInt();
          if(age<0||age>100) 
           throw new WrongStudentAge();
+    return age;
+  }
+    public static void exercise1() throws IOException, WrongStudentName,WrongStudentAge {
+        var name = ReadName();
+        var age = ReadAge();
+       //  if(age<0||age>100) 
+        //  throw new WrongStudentAge();
       
         scan.nextLine();
         System.out.println("Podaj datę urodzenia DD-MM-YYY");
