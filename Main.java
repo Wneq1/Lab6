@@ -30,26 +30,36 @@ class Main {
         }
     }
 
-   public static int menu() throws WrongMiniMenu {
-    Scanner scan = new Scanner(System.in);
-    System.out.println("Wciśnij:");
-    System.out.println("1 - aby dodać studenta");
-    System.out.println("2 - aby wypisać wszystkich studentów");
-    System.out.println("3 - aby wyszukać studenta po imieniu");
-    System.out.println("0 - aby wyjść z programu");
+ public static int menu() throws WrongMiniMenu {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Wciśnij:");
+        System.out.println("1 - aby dodać studenta");
+        System.out.println("2 - aby wypisać wszystkich studentów");
+        System.out.println("3 - aby wyszukać studenta po imieniu");
+        System.out.println("0 - aby wyjść z programu");
 
-    try {
-        int z = scan.nextInt();
+        String input = scan.nextLine();
 
-        if (z > 3 || z < 0) {
+        if (input.length() != 1) {
             throw new WrongMiniMenu();
         }
 
-        return z;
-    } catch (InputMismatchException e) {
-        throw new WrongMiniMenu();
+        char ch = input.charAt(0);
+        int ascii = (int) ch;
+
+        if (ascii >= 48 && ascii <= 57) {
+            int z = Character.getNumericValue(ch);
+
+            if (z > 3 || z < 0) {
+                throw new WrongMiniMenu();
+            }
+
+            return z;
+        } else {
+           
+            throw new WrongMiniMenu();
+        }
     }
-}
     public static String ReadName() throws WrongStudentName {
       
         System.out.println("Podaj imie: ");
